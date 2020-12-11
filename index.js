@@ -3,9 +3,7 @@ const github = require('@actions/github');
 
 try {
   // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
-
+  const payload = github.context.payload;
   const time = (new Date()).toISOString();
 
   const prefix = "refs/tags/v";
