@@ -1,0 +1,9 @@
+name: 'Docker Meta'
+description: 'description: "GitHub Action to extract metadata (args) for Docker" '
+inputs: {}
+outputs:
+  build-args:
+    description: 'List of build-time variables'
+runs:
+  using: 'node12'
+  main: 'index.js'
