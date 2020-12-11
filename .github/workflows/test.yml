@@ -3,14 +3,13 @@ on: [push]
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Test docker meta works
     steps:
     - name: Checkout source code
       uses: actions/checkout@v2
     - name: Test action
       id: meta
       uses: ./
-    # Use the output from the `hello` step
     - name: Get the output args
       run: echo "The time was ${{ steps.meta.outputs.build-args }}"
 
