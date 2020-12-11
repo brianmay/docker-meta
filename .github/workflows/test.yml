@@ -11,5 +11,5 @@ jobs:
       id: meta
       uses: ./
     - name: Get the output args
-      run: echo "The time was ${{ steps.meta.outputs.build-args }}"
+      run: echo "The build-args was ${{ steps.meta.outputs.build-args }}"
 
