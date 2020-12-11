@@ -8,9 +8,9 @@ try {
 
   const prefix = "refs/tags/v";
   let version = "beta";
-  if (payload.ref.indexOf(PREFIX) == 0) {
+  if (payload.ref.indexOf(prefix) == 0) {
     // PREFIX is exactly at the beginning
-    version = payload.ref.slice(PREFIX.length);
+    version = payload.ref.slice(prefix.length);
   }
 
   const vcs_ref = payload.head_commit.id.substr(0,8);
