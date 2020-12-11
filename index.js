@@ -6,11 +6,16 @@ try {
   const payload = github.context.payload;
   const time = (new Date()).toISOString();
 
-  const prefix = "refs/tags/v";
   let version = "beta";
-  if (payload.ref.indexOf(prefix) == 0) {
-    // PREFIX is exactly at the beginning
-    version = payload.ref.slice(prefix.length);
+
+  const version_prefix = "refs/tags/v";
+  if (payload.ref.indexOf(version_prefix) == 0) {
+    version = payload.ref.slice(version_prefix.length);
+  }
+
+  const branch_prefix = "refs/heads/";
+  if (payload.ref.indexOf(branch_prefix) == 0) {
+    version = payload.ref.slice(branch_prefix.length);
   }
 
   const vcs_ref = payload.head_commit.id.substr(0,8);
