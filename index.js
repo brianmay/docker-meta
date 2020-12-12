@@ -20,7 +20,7 @@ try {
 
   const vcs_ref = payload.head_commit.id.substr(0,8);
 
-  core.setOutput("build-args", `BUILD_DATE=${time} VERSION=${version} VCS_REF=${vcs_ref}`);
+  core.setOutput("build-args", `BUILD_DATE=${time},VERSION=${version},VCS_REF=${vcs_ref}`);
 } catch (error) {
   core.setFailed(error.message);
 }
