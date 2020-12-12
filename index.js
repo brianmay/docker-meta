@@ -26,7 +26,7 @@ try {
   core.info(`VCS_REF: ${vcs_ref}`);
   core.endGroup();
 
-  core.setOutput("build-args", `BUILD_DATE=${time},VERSION=${version},VCS_REF=${vcs_ref}`);
+  core.setOutput("build-args", `BUILD_DATE=${time}\nVERSION=${version}\nVCS_REF=${vcs_ref}`);
 } catch (error) {
   core.setFailed(error.message);
 }
