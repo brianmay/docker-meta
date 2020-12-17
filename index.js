@@ -8,14 +8,19 @@ try {
 
   let version = "beta";
 
-  const version_prefix = "refs/tags/v";
-  if (payload.ref.indexOf(version_prefix) == 0) {
-    version = payload.ref.slice(version_prefix.length);
-  }
+  if (payload.ref) {
+    const version_prefix = "refs/tags/v";
+    if (payload.ref.indexOf(version_prefix) == 0) {
+      version = payload.ref.slice(version_prefix.length);
+    }
 
-  const branch_prefix = "refs/heads/";
-  if (payload.ref.indexOf(branch_prefix) == 0) {
-    version = payload.ref.slice(branch_prefix.length);
+    const branch_prefix = "refs/heads/";
+    if (payload.ref.indexOf(branch_prefix) == 0) {
+      version = payload.ref.slice(branch_prefix.length);
+    }
+  } else if (payload.head_ref) {
+      // pull requests
+      version = payload.head_ref;
   }
 
   const vcs_ref = payload.head_commit.id.substr(0,8);
