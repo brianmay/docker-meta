@@ -23,7 +23,7 @@ try {
       version = payload.head_ref;
   }
 
-  const vcs_ref = payload.head_commit.id.substr(0,8);
+  const vcs_ref = payload.sha.substr(0,8);
 
   core.startGroup(`Context info`);
   core.info(`BUILD_DATA: ${time}`);
