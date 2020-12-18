@@ -3,7 +3,7 @@ const github = require('@actions/github');
 
 try {
   // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = github.context.payload;
+  const payload = github.context;
   const time = (new Date()).toISOString();
 
   let version = "beta";
