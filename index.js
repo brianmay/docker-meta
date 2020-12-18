@@ -26,7 +26,7 @@ try {
   const vcs_ref = payload.sha.substr(0,8);
 
   core.startGroup(`Context info`);
-  core.info(`BUILD_DATA: ${time}`);
+  core.info(`BUILD_DATE: ${time}`);
   core.info(`VERSION: ${version}`);
   core.info(`VCS_REF: ${vcs_ref}`);
   core.endGroup();
