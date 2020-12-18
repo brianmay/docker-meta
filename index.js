@@ -18,8 +18,12 @@ try {
     if (context.ref.indexOf(branch_prefix) == 0) {
       version = context.ref.slice(branch_prefix.length);
     }
+
+    const pull_prefix = "refs/pull/";
+    if (context.ref.indexOf(pull_prefix) == 0) {
+      version = context.ref.slice(branch_prefix.length);
+    }
   } else if (context.head_ref) {
-      // pull requests
       version = context.head_ref;
   }
 
