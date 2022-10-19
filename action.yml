@@ -5,5 +5,5 @@ outputs:
   build-args:
     description: 'List of build-time variables'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'index.js'
